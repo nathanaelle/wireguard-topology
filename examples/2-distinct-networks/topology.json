@@ -1,0 +1,27 @@
+{
+	"config-name" : "2-distinct-networks",
+	"iface": "wg",
+	"prefix-ipv6/cidr": "fd00::/16",
+	"hosts": [
+		{	"host": "h1.n1.net",	"ipv6": "fd00:dead:1dea::1/96"	},
+		{	"host": "h2.n1.net",	"ipv6": "fd00:dead:1dea::2/96"	},
+		{	"host": "h3.n1.net",	"ipv6": "fd00:dead:1dea::3/96"	},
+		{	"host": "h4.n1.net",	"ipv6": "fd00:dead:1dea::4/96"	},
+		{	"host": "h1.n2.net",	"ipv6": "fd00:bad:f00d::1/96"	},
+		{	"host": "h2.n2.net",	"ipv6": "fd00:bad:f00d::2/96"	},
+		{	"host": "h3.n2.net",	"ipv6": "fd00:bad:f00d::3/96"	},
+		{	"host": "h4.n2.net",	"ipv6": "fd00:bad:f00d::4/96"	}
+	],
+	"clusters": [
+		{
+			"cluster":"network 1",
+			"templates": [ "wg.netdev", "wg.network" ],
+			"members": [	"h1.n1.net", "h2.n1.net", "h3.n1.net", "h4.n1.net"	]
+		},
+		{
+			"cluster":"network 2",
+			"templates": [ "wg.netdev", "wg.network" ],
+			"members": [	"h1.n2.net", "h2.n2.net", "h3.n2.net", "h4.n2.net"	]
+		}
+	]
+}

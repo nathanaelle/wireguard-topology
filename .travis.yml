@@ -1,0 +1,32 @@
+language: go
+
+env:
+	- GO111MODULE=on
+      
+go:
+	- 1.15.x
+	- 1.14.x
+	- 1.13.x
+	- 1.12.x
+	- 1.11.x
+	- 1.10.x
+	- 1.9.x
+	- 1.8.x
+	- tip
+
+matrix:
+	allow_failures:
+		- go: tip
+
+go_import_path: github.com/nathanaelle/wireguard-topology
+      
+branches:
+	except:
+		- /poc-.*/
+
+install:
+	- go mod download || go get -u
+
+script:
+	- go test github.com/nathanaelle/wireguard-topology
+	- go install github.com/nathanaelle/wireguard-topology/cmd/wg-topology

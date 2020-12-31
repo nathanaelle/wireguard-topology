@@ -1,0 +1,9 @@
+{
+	"go.testOnSave": true,
+	"go.coverOnSave": true,
+	"go.coverageOptions": "showUncoveredCodeOnly",
+	"go.testTimeout": "10s",
+	"editor.tabSize": 8,
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false
+}

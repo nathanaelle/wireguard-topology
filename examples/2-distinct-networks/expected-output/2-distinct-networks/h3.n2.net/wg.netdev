@@ -1,0 +1,33 @@
+[NetDev]
+Name=wg
+Kind=wireguard
+
+[WireGuard]
+ListenPort=17815
+PrivateKey=<private key for "h3.n2.net" >
+
+
+# h1.n2.net
+[WireGuardPeer]
+PublicKey=<public key for "h1.n2.net" >
+PresharedKey=<secret PSK for ( "h3.n2.net" , "h1.n2.net" ) >
+Endpoint=h1.n2.net:17815
+AllowedIPs=fd00:bad:f00d::1/128
+
+
+# h2.n2.net
+[WireGuardPeer]
+PublicKey=<public key for "h2.n2.net" >
+PresharedKey=<secret PSK for ( "h3.n2.net" , "h2.n2.net" ) >
+Endpoint=h2.n2.net:17815
+AllowedIPs=fd00:bad:f00d::2/128
+
+
+# h4.n2.net
+[WireGuardPeer]
+PublicKey=<public key for "h4.n2.net" >
+PresharedKey=<secret PSK for ( "h4.n2.net" , "h3.n2.net" ) >
+Endpoint=h4.n2.net:17815
+AllowedIPs=fd00:bad:f00d::4/128
+
+

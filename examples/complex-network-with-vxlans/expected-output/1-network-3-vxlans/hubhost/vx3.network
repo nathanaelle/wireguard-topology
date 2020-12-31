@@ -1,0 +1,21 @@
+[Match]
+Name=vx3
+
+[Network]
+DHCP=yes
+IPForward=no
+ConfigureWithoutCarrier=yes
+KeepConfiguration=yes
+
+
+# n3
+[BridgeFDB]
+VNI=3
+MACAddress=00:00:00:00:00:00
+Destination=fd00:bad:f00d::3
+
+# n6
+[BridgeFDB]
+VNI=3
+MACAddress=00:00:00:00:00:00
+Destination=fd00:bad:f00d::6

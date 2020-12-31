@@ -1,0 +1,80 @@
+{
+	"config-name" : "1-network-3-vxlans",
+	"iface": "wg",
+	"prefix-ipv6/cidr": "fd00:bad:f00d::/96",
+	"hosts": [
+		{	"host": "n1",	"ipv6": "fd00:bad:f00d::1/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx1"	}
+				]
+			}
+		},
+		{	"host": "n2",	"ipv6": "fd00:bad:f00d::2/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx2"	}
+				]
+			}
+		},
+		{	"host": "n3",	"ipv6": "fd00:bad:f00d::3/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx3"	}
+				]
+			}
+		},
+		{	"host": "n4",	"ipv6": "fd00:bad:f00d::4/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx1"	}
+				]
+			}
+		},
+		{	"host": "n5",	"ipv6": "fd00:bad:f00d::5/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx2"	}
+				]
+			}
+		},
+		{	"host": "n6",	"ipv6": "fd00:bad:f00d::6/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx3"	}
+				]
+			}
+		},
+		{	"host": "hubhost",	"ipv6": "fd00:bad:f00d::7/96",
+			"Misc": {
+				"VXLANs": [
+					{	"Name": "vx1"	},
+					{	"Name": "vx2"	},
+					{	"Name": "vx3"	}
+				]
+			}
+		}
+	],
+	"clusters": [
+		{
+			"cluster":"network",
+			"templates": [ "wg.netdev", "wg.network" ],
+			"members": [ "n1", "n2", "n3", "n4", "n5", "n6", "hubhost" ]
+		},
+		{
+			"cluster":"vxlan1",
+			"templates": [ "vx1.netdev", "vx1.network" ],
+			"members": [ "n1", "n4", "hubhost" ]
+		},
+		{
+			"cluster":"vxlan2",
+			"templates": [ "vx2.netdev", "vx2.network" ],
+			"members": [ "n2", "n5", "hubhost" ]
+		},
+		{
+			"cluster":"vxlan3",
+			"templates": [ "vx3.netdev", "vx3.network" ],
+			"members": [ "n3", "n6", "hubhost" ]
+		}
+	]
+}

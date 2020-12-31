@@ -1,0 +1,21 @@
+[Match]
+Name=vx2
+
+[Network]
+DHCP=yes
+IPForward=no
+ConfigureWithoutCarrier=yes
+KeepConfiguration=yes
+
+
+# hubhost
+[BridgeFDB]
+VNI=2
+MACAddress=00:00:00:00:00:00
+Destination=fd00:bad:f00d::7
+
+# n5
+[BridgeFDB]
+VNI=2
+MACAddress=00:00:00:00:00:00
+Destination=fd00:bad:f00d::5

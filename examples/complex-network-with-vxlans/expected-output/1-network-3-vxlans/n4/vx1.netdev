@@ -1,0 +1,9 @@
+[NetDev]
+Name=vx1
+Kind=vxlan
+
+[VXLAN]
+VNI=1
+MacLearning=yes
+DestinationPort=4789
+Local=fd00:bad:f00d::4

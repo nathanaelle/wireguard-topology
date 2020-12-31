@@ -1,0 +1,17 @@
+[Match]
+Name={{ .Iface }}
+
+[Network]
+DHCP=no
+IPv4LLRoute=no
+LLMNR=no
+MulticastDNS=no
+LLDP=no
+IPForward=no
+ConfigureWithoutCarrier=true
+KeepConfiguration=yes
+{{ with .Misc }}{{ range .VXLANs }}VXLAN={{ .Name }}
+{{ end }}{{ end }}
+
+[Address]
+Address={{ .Address }}

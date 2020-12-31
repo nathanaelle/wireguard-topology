@@ -1,0 +1,16 @@
+[Match]
+Name=vx3
+
+[Network]
+DHCP=yes
+IPForward=no
+ConfigureWithoutCarrier=yes
+KeepConfiguration=yes
+
+{{ range .Peers }}
+# {{ .Host }}
+[BridgeFDB]
+VNI=3
+MACAddress=00:00:00:00:00:00
+Destination={{ .PeerIP }}
+{{ end }}

@@ -1,0 +1,17 @@
+[NetDev]
+Name={{ .Iface }}
+Kind=wireguard
+
+[WireGuard]
+ListenPort={{ .ListenPort }}
+PrivateKey={{ .PrivateKey }}
+
+{{ range .Peers }}
+# {{ .Host }}
+[WireGuardPeer]
+PublicKey={{ .PublicKey }}
+PresharedKey={{ .PreSharedKey }}
+Endpoint={{ .EndPoint }}
+AllowedIPs={{ .AllowedIPs }}
+{{ if .PersistentKeepalive }}PersistentKeepalive={{ .PersistentKeepalive }}{{ end }}
+{{ end }}

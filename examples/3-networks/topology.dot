@@ -1,0 +1,18 @@
+graph {
+	graph [ overlapse=false ];
+	node [ fontsize=10 shape=circle ];
+
+	"h1.n1.net" -- "h2.n1.net" -- "h3.n1.net" -- "h4.n1.net" -- "h1.n1.net";
+	"h1.n1.net" -- "h3.n1.net";
+	"h2.n1.net" -- "h4.n1.net";
+
+	"h1.n2.net" -- "h2.n2.net" -- "h3.n2.net" -- "h4.n2.net" -- "h1.n2.net";
+	"h1.n2.net" -- "h3.n2.net";
+	"h2.n2.net" -- "h4.n2.net";
+
+	"h1.n3.net" -- "h2.n3.net" -- "h3.n3.net" -- "h4.n3.net" -- "h1.n3.net";
+	"h1.n3.net" -- "h3.n3.net";
+	"h2.n3.net" -- "h4.n3.net";
+
+	"h1.n3.net" -- "h1.n2.net" -- "h1.n1.net" -- "h1.n3.net";
+}

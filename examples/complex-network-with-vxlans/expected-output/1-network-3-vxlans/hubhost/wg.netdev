@@ -1,0 +1,57 @@
+[NetDev]
+Name=wg
+Kind=wireguard
+
+[WireGuard]
+ListenPort=17815
+PrivateKey=<private key for "hubhost" >
+
+
+# n1
+[WireGuardPeer]
+PublicKey=<public key for "n1" >
+PresharedKey=<secret PSK for ( "hubhost" , "n1" ) >
+Endpoint=n1:17815
+AllowedIPs=fd00:bad:f00d::1/128
+
+
+# n2
+[WireGuardPeer]
+PublicKey=<public key for "n2" >
+PresharedKey=<secret PSK for ( "hubhost" , "n2" ) >
+Endpoint=n2:17815
+AllowedIPs=fd00:bad:f00d::2/128
+
+
+# n3
+[WireGuardPeer]
+PublicKey=<public key for "n3" >
+PresharedKey=<secret PSK for ( "hubhost" , "n3" ) >
+Endpoint=n3:17815
+AllowedIPs=fd00:bad:f00d::3/128
+
+
+# n4
+[WireGuardPeer]
+PublicKey=<public key for "n4" >
+PresharedKey=<secret PSK for ( "hubhost" , "n4" ) >
+Endpoint=n4:17815
+AllowedIPs=fd00:bad:f00d::4/128
+
+
+# n5
+[WireGuardPeer]
+PublicKey=<public key for "n5" >
+PresharedKey=<secret PSK for ( "hubhost" , "n5" ) >
+Endpoint=n5:17815
+AllowedIPs=fd00:bad:f00d::5/128
+
+
+# n6
+[WireGuardPeer]
+PublicKey=<public key for "n6" >
+PresharedKey=<secret PSK for ( "hubhost" , "n6" ) >
+Endpoint=n6:17815
+AllowedIPs=fd00:bad:f00d::6/128
+
+

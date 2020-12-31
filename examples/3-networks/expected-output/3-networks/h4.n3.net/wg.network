@@ -1,0 +1,15 @@
+[Match]
+Name=wg
+
+[Network]
+DHCP=no
+IPv4LLRoute=no
+LLMNR=no
+MulticastDNS=no
+LLDP=no
+IPForward=no
+ConfigureWithoutCarrier=true
+KeepConfiguration=yes
+
+[Address]
+Address=fd00:face:c0de::3:4/96
