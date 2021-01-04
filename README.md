@@ -9,7 +9,7 @@
   * [Example](#example)
   * [Main Goals](#main-goals)
   * [Security Statements](#security-statements)
-  * [License & credits](#license-credits)
+  * [License & credits](#license--credits)
 
   * [To do](#to-do)
 
