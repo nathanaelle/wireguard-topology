@@ -9,7 +9,8 @@
   * [Example](#example)
   * [Main Goals](#main-goals)
   * [Security Statements](#security-statements)
-  * [License](#license)
+  * [License & credits](#license-credits)
+
   * [To do](#to-do)
 
 ## What is Wireguard Topology
@@ -39,20 +40,20 @@ It's a lot of files, and Wireguard Topology can generate them from only 1 single
   * `-dont-generate-cryptographic-keys` this option is useful for tests or when the crypto part is delegated to another process
   * `-in <JSON source>` this mandatory option specify the JSON source file. "-" means stdin.
   * `-out <destination>` this option specify the destination directory or tar file. the default output destination is the current directory
-  * `-tmpl <templates>` this mandatory option specify the templates directory. The template use the official (`text/template`)[https://golang.org/pkg/text/template/] grammar.
+  * `-tmpl <templates>` this mandatory option specify the templates directory. The template use the official [`text/template`](https://golang.org/pkg/text/template/) grammar.
 
 ## JSON configuration
 
   * `config-name` specify the name of the destination where all the configuration will be created
   * `prefix-ipv6/cidr` mandatory option in case of DNS resolution 
   * `hosts` is a list of unique hosts
-    * `host` is a mandatory unique field which should contain a (FQDN)[https://en.wikipedia.org/wiki/Fully_qualified_domain_name] and may contain a unique identifier when `ipv6` is provided
-    * `ipv6` is an optionnal field which contains an IPv6. this field will be constructed from the global `prefix-ipv6/cidr` and the first IPv4 found in the resolution of the (FQDN)[https://en.wikipedia.org/wiki/Fully_qualified_domain_name] in `host`.
+    * `host` is a mandatory unique field which should contain a [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) and may contain a unique identifier when `ipv6` is provided
+    * `ipv6` is an optionnal field which contains an IPv6. this field will be constructed from the global `prefix-ipv6/cidr` and the first IPv4 found in the resolution of the [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) in `host`.
   * `clusters` is a list of cluster
     * `cluster` is a mandatory non unique field wich describe a dense sub network
-    * `members` is the list of (FQDN)[https://en.wikipedia.org/wiki/Fully_qualified_domain_name] which each peer is connected to every others.
+    * `members` is the list of [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) which each peer is connected to every others.
 
-You can read the type declaration in (config.go)[config.go] to find all the available options.
+You can read the type declaration in [config.go](config.go) to find all the available options.
 
 ## Example
 
@@ -88,17 +89,25 @@ There is others examples in [examples/](examples/)
   * [x] can configure `vxlan`s
   * [x] use templating for config files
   * [x] use a linear description for a combinatorial situation
+  * [ ] Coping with custom `AllowedIP`
 
 ## Security Statements
 
   * this code was audited 0 time
 
-## License
+## License & credits
+
+### License
 
 2-Clause BSD
 
+### Credits
+
+Thanks to [Bruno Bellamy](https://www.facebook.com/bellaminettes) to allow me to use one of his draw as an illustration.
+
 ## To do
 
+  * Coping with custom `AllowedIP`
   * cleanup some historical weird stuff in the configuration
   * Improve code comments
   * Improve documentations
